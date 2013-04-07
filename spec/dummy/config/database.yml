@@ -1,0 +1,18 @@
+common: &COMMON
+  adapter: postgresql
+  encoding: unicode
+  pool: 8
+  username: rails
+  password:
+  min_messages: warning
+
+development:
+  <<: *COMMON
+  database: api_development
+
+test: &TEST
+  <<: *COMMON
+  database: api_test<%= ENV['TEST_ENV_NUMBER'] %>
+
+cucumber:
+  <<: *TEST
