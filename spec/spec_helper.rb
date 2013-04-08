@@ -4,6 +4,7 @@ require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require 'rspec/rails'
 require 'factory_girl_rails'
 require 'database_cleaner'
+require 'pry'
 
 Rails.backtrace_cleaner.remove_silencers!
 # Load support files
