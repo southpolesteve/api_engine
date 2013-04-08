@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/southpolesteve/api.png)](https://travis-ci.org/southpolesteve/api)
+[![Code Climate](https://codeclimate.com/github/southpolesteve/api.png)](https://codeclimate.com/github/southpolesteve/api)
+[![Dependency Status](https://gemnasium.com/southpolesteve/api.png)](https://gemnasium.com/southpolesteve/api)
 
 An API engine for Rails. Convention over configuration. Auto generated docs (coming soon!)
 
