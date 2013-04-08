@@ -1,6 +1,8 @@
-An API engine for Rails
+[![Build Status](https://travis-ci.org/southpolesteve/api.png)](https://travis-ci.org/southpolesteve/api)
 
-Not ready for public consumption
+An API engine for Rails. Convention over configuration. Auto generated docs (coming soon!)
+
+Not ready for public consumption. Massive security holes still exist
 
 ## Installation
 
@@ -9,8 +11,6 @@ Add `gem 'api', github: "southpolesteve/api"` to your gem file. That should work
 ## Configuration
 
 There is no configuration... yet. All of your models will be exposed in a REST API at `/api/:model_name`. This is probably a massive security risk for any non-trivial application. You have been warned
-
-[![Build Status](https://travis-ci.org/southpolesteve/api.png)](https://travis-ci.org/southpolesteve/api)
 
 ## Contributing
 
