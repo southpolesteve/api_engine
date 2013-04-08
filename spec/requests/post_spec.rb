@@ -4,8 +4,8 @@ describe 'the default api' do
 
   describe 'index' do
     before do
-      Post.create(title:  "Test")
-      get '/posts'
+      Post.create(title: "Test")
+      get '/api/posts'
     end
 
     it "uses a plural json root" do
@@ -19,8 +19,8 @@ describe 'the default api' do
 
   describe 'show' do
     before do
-      Post.create(title:  "Test")
-      get '/posts/1'
+      Post.create(title: "Test")
+      get '/api/posts/1'
     end
 
     it "uses a singular json root" do
@@ -35,7 +35,7 @@ describe 'the default api' do
 
   describe 'create' do
     before do
-      post '/posts', post: { title: 'Created post'}
+      post '/api/posts', post: { title: 'Created post'}
     end
 
     it "returns the proper status code" do
@@ -49,8 +49,8 @@ describe 'the default api' do
 
   describe 'update' do
     before do
-      Post.create(title:  "Test")
-      put '/posts/1', post: { title: 'Changed' }
+      Post.create(title: "Test")
+      put '/api/posts/1', post: { title: 'Changed' }
     end
 
     it "returns a correct response code" do
@@ -60,8 +60,8 @@ describe 'the default api' do
 
   describe 'destroy' do
     before do
-      Post.create(title:  "Test")
-      delete '/posts/1'
+      Post.create(title: "Test")
+      delete '/api/posts/1'
     end
 
     it "returns the proper response code" do
