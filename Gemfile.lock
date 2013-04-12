@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    api (0.0.1)
+    api_engine (0.0.1)
       active_model_serializers
       rails (~> 3.2.13)
 
@@ -121,7 +121,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  api!
+  api_engine!
   database_cleaner
   factory_girl_rails
   jquery-rails

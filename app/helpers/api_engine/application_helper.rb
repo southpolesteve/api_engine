@@ -1,4 +1,4 @@
-module Api
+module ApiEngine
   module ApplicationHelper
   end
 end

@@ -1,4 +1,4 @@
-module Api
+module ApiEngine
   class ApplicationController < ActionController::Base
     def index
       @posts = model_class.all

@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount Api::Engine => "/api"
+  mount ApiEngine::Engine => "/api"
 end

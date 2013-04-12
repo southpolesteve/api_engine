@@ -1,6 +1,6 @@
-module Api
+module ApiEngine
   class Engine < ::Rails::Engine
-    isolate_namespace Api
+    isolate_namespace ApiEngine
 
     config.generators do |g|
       g.test_framework      :rspec,        :fixture => false

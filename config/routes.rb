@@ -1,4 +1,4 @@
-Api::Engine.routes.draw do
+ApiEngine::Engine.routes.draw do
 
   get '/:model_name/' => 'application#index'
   get '/:model_name/:id' => 'application#show'

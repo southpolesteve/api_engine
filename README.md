@@ -16,7 +16,6 @@ There is no configuration... yet. All of your models will be exposed in a REST A
 
 Creating an issue is good. Sending a pull request is better.
 
-
 ## License and Copyright
 
 Copyright 2013 Steven Faulkner

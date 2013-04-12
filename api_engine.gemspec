@@ -1,12 +1,12 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "api/version"
+require "api_engine/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "api"
-  s.version     = Api::VERSION
+  s.name        = "api_engine"
+  s.version     = ApiEngine::VERSION
   s.authors     = ["Steven Faulkner"]
   s.email       = ["southpolesteve@gmail.com"]
   s.homepage    = "http://www.southpolesteve.com"
