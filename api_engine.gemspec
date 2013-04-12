@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "An API engine"
   s.description = "Write some more stuff here later"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE.md", "Rakefile", "README.md"]
 
   s.test_files = Dir["spec/**/*"]
 
