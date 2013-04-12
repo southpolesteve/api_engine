@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/southpolesteve/api.png)](https://travis-ci.org/southpolesteve/api)
+[![Code Climate](https://codeclimate.com/github/southpolesteve/api.png)](https://codeclimate.com/github/southpolesteve/api)
+[![Dependency Status](https://gemnasium.com/southpolesteve/api.png)](https://gemnasium.com/southpolesteve/api)
 
 An API engine for Rails. Convention over configuration. Auto generated docs (coming soon!)
 
@@ -11,6 +13,12 @@ Add `gem 'api', github: "southpolesteve/api"` to your gem file. That should work
 ## Configuration
 
 There is no configuration... yet. All of your models will be exposed in a REST API at `/api/:model_name`. This is probably a massive security risk for any non-trivial application. You have been warned
+
+## Other Gems
+
+https://github.com/intridea/grape
+https://github.com/polleverywhere/cerealizer
+https://github.com/apotonick/roar
 
 ## Contributing
 
