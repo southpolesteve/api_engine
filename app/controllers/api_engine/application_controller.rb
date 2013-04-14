@@ -11,11 +11,19 @@ module ApiEngine
     end
 
     def create
-      @model = model_class.new(params[singular_model])
-      if @model.save
-        render json: @model, status: :created
+      if bulk_operation?
+        @models = []
+        params[plural_model].each do |attributes|
+          @models << model_class.create!(attributes)
+        end
+        render json: @models, status: :created
       else
-        render json: @model.errors, status: :unprocessable_entity
+        @model = model_class.new(params[singular_model])
+        if @model.save
+          render json: @model, status: :created
+        else
+          render json: @model.errors, status: :unprocessable_entity
+        end
       end
     end
 
@@ -46,6 +54,10 @@ module ApiEngine
 
     def singular_model
       params[:model_name].singularize
+    end
+
+    def bulk_operation?
+      params[plural_model] ? true : false
     end
 
   end
