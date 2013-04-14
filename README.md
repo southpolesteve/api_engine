@@ -8,7 +8,9 @@ Not ready for public consumption. Massive security holes still exist
 
 ## Installation
 
-Add `gem 'api', github: "southpolesteve/api"` to your gem file. That should work. I think. I haven't tested it yet.
+1. Add `gem 'api_engine', github: "southpolesteve/api_engine"` to your gem file
+
+2. Add `mount ApiEngine::Engine => "/api"` to your routes file
 
 ## Configuration
 
