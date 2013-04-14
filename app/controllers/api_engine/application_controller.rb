@@ -30,10 +30,21 @@ module ApiEngine
     def update
       @model = model_class.find(params[:id])
       if @model.update_attributes(params[singular_model])
-        head :no_content
+        render json: @model
       else
         render json: @model.errors, status: :unprocessable_entity
       end
+    end
+
+    def bulk_update
+      @models = []
+      params[plural_model].each do |attributes|
+        id = attributes.delete('id')
+        object = model_class.find(id)
+        object.update_attributes!(attributes)
+        @models << object
+      end
+      render json: @models, root: plural_model
     end
 
     def destroy

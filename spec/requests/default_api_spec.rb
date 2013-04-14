@@ -74,7 +74,11 @@ describe 'Default API' do
       end
 
       it "returns a correct response code" do
-        response.status.should eq(204)
+        response.status.should eq(200)
+      end
+
+      it "returns the saved post" do
+        JSON.parse(response.body)['post'].should eq({'id' => 1, 'title' => 'Changed'})
       end
 
       it "updates a post" do
@@ -86,11 +90,15 @@ describe 'Default API' do
       before do
         Post.create(title: "Test")
         Post.create(title: "Test 2")
-        put '/api/posts/bulk', posts: [{ id: 1, title: 'Changed' }, { id: 2, tile: 'Changed 2'}]
+        put '/api/posts/bulk', posts: [{ id: 1, title: 'Changed' }, { id: 2, title: 'Changed 2'}]
       end
 
       it "returns a correct response code" do
-        response.status.should eq(204)
+        response.status.should eq(200)
+      end
+
+      it "returns the saved posts" do
+        JSON.parse(response.body)['posts'].should =~ [{ 'id' => 1, 'title' => 'Changed' }, { 'id' => 2, 'title' => 'Changed 2'}]
       end
 
       it "updates the posts" do
