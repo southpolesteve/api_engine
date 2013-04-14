@@ -66,45 +66,42 @@ describe 'Default API' do
   end
 
   describe '#update' do
-
-    context "singular update" do
-      before do
-        Post.create(title: "Test")
-        put '/api/posts/1', post: { title: 'Changed' }
-      end
-
-      it "returns a correct response code" do
-        response.status.should eq(200)
-      end
-
-      it "returns the saved post" do
-        JSON.parse(response.body)['post'].should eq({'id' => 1, 'title' => 'Changed'})
-      end
-
-      it "updates a post" do
-        Post.find(1).title.should eq("Changed")
-      end
+    before do
+      Post.create(title: "Test")
+      put '/api/posts/1', post: { title: 'Changed' }
     end
 
-    context "bulk update" do
-      before do
-        Post.create(title: "Test")
-        Post.create(title: "Test 2")
-        put '/api/posts/bulk', posts: [{ id: 1, title: 'Changed' }, { id: 2, title: 'Changed 2'}]
-      end
+    it "returns a correct response code" do
+      response.status.should eq(200)
+    end
 
-      it "returns a correct response code" do
-        response.status.should eq(200)
-      end
+    it "returns the saved post" do
+      JSON.parse(response.body)['post'].should eq({'id' => 1, 'title' => 'Changed'})
+    end
 
-      it "returns the saved posts" do
-        JSON.parse(response.body)['posts'].should =~ [{ 'id' => 1, 'title' => 'Changed' }, { 'id' => 2, 'title' => 'Changed 2'}]
-      end
+    it "updates a post" do
+      Post.find(1).title.should eq("Changed")
+    end
+  end
 
-      it "updates the posts" do
-        Post.find(1).title.should eq("Changed")
-        Post.find(2).title.should eq("Changed 2")
-      end
+  describe "#bulk_update" do
+    before do
+      Post.create(title: "Test")
+      Post.create(title: "Test 2")
+      put '/api/posts/bulk', posts: [{ id: 1, title: 'Changed' }, { id: 2, title: 'Changed 2'}]
+    end
+
+    it "returns a correct response code" do
+      response.status.should eq(200)
+    end
+
+    it "returns the saved posts" do
+      JSON.parse(response.body)['posts'].should =~ [{ 'id' => 1, 'title' => 'Changed' }, { 'id' => 2, 'title' => 'Changed 2'}]
+    end
+
+    it "updates the posts" do
+      Post.find(1).title.should eq("Changed")
+      Post.find(2).title.should eq("Changed 2")
     end
   end
 
@@ -116,6 +113,26 @@ describe 'Default API' do
 
     it "returns a correct response code" do
       response.status.should eq(204)
+    end
+
+    it "deletes the record" do
+      Post.count.should eq(0)
+    end
+  end
+
+  describe '#bulk_destroy' do
+    before do
+      Post.create(title: "Test")
+      Post.create(title: "Test 2")
+      delete '/api/posts/bulk', posts: [{ id: 1, title: 'Test' }, { id: 2, title: 'Test 2'}]
+    end
+
+    it "returns a correct response code" do
+      response.status.should eq(204)
+    end
+
+    it "deletes the sent records" do
+      Post.count.should eq(0)
     end
   end
 end

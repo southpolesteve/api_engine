@@ -53,6 +53,12 @@ module ApiEngine
       head :no_content
     end
 
+    def bulk_destroy
+      @models = model_class.find(params[plural_model].map{ |m| m['id']})
+      @models.map(&:destroy)
+      head :no_content
+    end
+
     private
 
     def model_class

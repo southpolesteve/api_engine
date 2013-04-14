@@ -5,6 +5,7 @@ ApiEngine::Engine.routes.draw do
   post '/:model_name' => 'application#create'
   put '/:model_name/bulk' => 'application#bulk_update'
   put '/:model_name/:id' => 'application#update'
+  delete '/:model_name/bulk' => 'application#bulk_destroy'
   delete '/:model_name/:id' => 'application#destroy'
 
 end
