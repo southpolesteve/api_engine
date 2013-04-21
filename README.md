@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/southpolesteve/api_engine.png)](https://travis-ci.org/southpolesteve/api_engine)
+[![Build Status](https://travis-ci.org/southpolesteve/api_engine.png?branch=master)](https://travis-ci.org/southpolesteve/api_engine)
 [![Code Climate](https://codeclimate.com/github/southpolesteve/api_engine.png)](https://codeclimate.com/github/southpolesteve/api_engine)
 [![Dependency Status](https://gemnasium.com/southpolesteve/api_engine.png)](https://gemnasium.com/southpolesteve/api_engine)
 
