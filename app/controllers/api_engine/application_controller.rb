@@ -1,5 +1,7 @@
 module ApiEngine
   class ApplicationController < ActionController::Base
+    before_filter :check_whitelist
+
     def index
       @models = model_class.all
       render json: @models, root: plural_model
@@ -75,6 +77,13 @@ module ApiEngine
 
     def bulk_operation?
       params[plural_model] ? true : false
+    end
+
+    def check_whitelist
+      whitelist = ApiEngine.config.whitelist
+      if whitelist && !whitelist.include?(singular_model.to_sym)
+        redirect_to :status => 404
+      end
     end
 
   end
