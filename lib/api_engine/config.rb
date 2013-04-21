@@ -7,7 +7,7 @@ module ApiEngine
   #   end
 
   def self.configure(&block)
-    yield @config ||= ApiEngine::Configuration.new
+    yield config
   end
 
   # Global settings for ApiEngine
