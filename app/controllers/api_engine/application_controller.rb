@@ -1,5 +1,7 @@
 module ApiEngine
   class ApplicationController < ActionController::Base
+    before_filter: restrict_access
+
     def index
       @models = model_class.all
       render json: @models, root: plural_model
@@ -60,6 +62,12 @@ module ApiEngine
     end
 
     private
+
+    def restrict_access
+      authenticate_or_request_with_http_token do |token, options|
+        ApiKey.exists?(access_token: token)
+      end
+    end
 
     def model_class
       params[:model_name].classify.constantize
