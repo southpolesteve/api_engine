@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = ApiEngine::VERSION
   s.authors     = ["Steven Faulkner"]
   s.email       = ["southpolesteve@gmail.com"]
-  s.homepage    = "http://www.southpolesteve.com"
-  s.summary     = "An API engine"
-  s.description = "Write some more stuff here later"
+  s.homepage    = "https://github.com/southpolesteve/api_engine"
+  s.summary     = "An API engine for Rails"
+  s.description = "An API engine for Rails. Structure of the API is opinionated and designed to directly interface with ember-data."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE.md", "Rakefile", "README.md"]
 
