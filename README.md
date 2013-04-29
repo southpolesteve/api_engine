@@ -8,7 +8,7 @@ Not ready for public consumption. Massive security holes still exist
 
 ## Installation
 
-1. Add `gem 'api_engine', github: "southpolesteve/api_engine"` to your gem file
+1. Add `gem "api_engine", "~> 0.0.1"` to your gem file
 2. Generate an initializer: `rails generate api_engine:config`
 3. Add `mount ApiEngine::Engine => "/api"` to your routes file
 
