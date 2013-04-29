@@ -9,14 +9,22 @@ Not ready for public consumption. Massive security holes still exist
 ## Installation
 
 1. Add `gem 'api_engine', github: "southpolesteve/api_engine"` to your gem file
-2. Generate a config initializer: `rails generate api_engine:config`
+2. Generate an initializer: `rails generate api_engine:config`
 3. Add `mount ApiEngine::Engine => "/api"` to your routes file
 
 ## Configuration
 
-There is no configuration... yet. All of your models will be exposed in a REST API at `/api/:model_name`. This is probably a massive security risk for any non-trivial application. You have been warned
+By default all of your models will be exposed in a bulk REST API at `/api/:model_name`. To expose only certain models, use the whitelist config option:
+
+``` ruby
+ApiEngine.configure do |config|
+  config.whitelist = [:comment] # Exposes only the 'Comment' model via the API
+end
+```
 
 ## Other Gems
+
+Looking for some other resources for creating my complex APIs? Check out these gems...
 
 https://github.com/intridea/grape
 https://github.com/polleverywhere/cerealizer
