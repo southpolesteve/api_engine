@@ -24,11 +24,11 @@ end
 
 ## Other Gems
 
-Looking for some other resources for creating my complex APIs? Check out these gems...
+Looking for some other resources for creating more complex APIs? Check out these gems...
 
-https://github.com/intridea/grape
-https://github.com/polleverywhere/cerealizer
-https://github.com/apotonick/roar
+- https://github.com/intridea/grape
+- https://github.com/polleverywhere/cerealizer
+- https://github.com/apotonick/roar
 
 ## Contributing
 
