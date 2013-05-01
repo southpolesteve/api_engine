@@ -29,6 +29,7 @@ Looking for some other resources for creating more complex APIs? Check out these
 - https://github.com/intridea/grape
 - https://github.com/polleverywhere/cerealizer
 - https://github.com/apotonick/roar
+- https://github.com/mavenlink/brainstem
 
 ## Contributing
 
