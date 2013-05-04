@@ -4,7 +4,10 @@
 
 An API engine for Rails. Convention over configuration. Auto generated docs (coming soon!)
 
-Not ready for public consumption. Massive security holes still exist
+You should use this gem if:
+- You want to add an API to your Rails app in just a few lines of code
+- You don't want to spend time writing controller code for your API
+- You want an API compatible with [Ember Data](https://github.com/emberjs/data)
 
 ## Installation
 
@@ -21,6 +24,9 @@ ApiEngine.configure do |config|
   config.whitelist = [:comment] # Exposes only the 'Comment' model via the API
 end
 ```
+
+## Authentication
+Coming soon! There is an open issue for this
 
 ## Other Gems
 
