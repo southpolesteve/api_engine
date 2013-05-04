@@ -26,7 +26,7 @@ describe 'Default API' do
     context "ids are passed in a parameter" do
       before do
         post1 && post2 && post3
-        get "/api/posts?ids=[#{post1.id},#{post3.id}]"
+        get "/api/posts?ids[]=#{post1.id}&ids[]=#{post3.id}"
       end
 
       it "uses a plural json root" do
