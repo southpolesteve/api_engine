@@ -1,24 +1,47 @@
 require 'spec_helper'
 
 describe 'Default API' do
+  let(:post1) { Post.create(title: "Test") }
+  let(:post2) { Post.create(title: "Test 2") }
+
   describe '#index' do
-    before do
-      Post.create(title: "Test")
-      get '/api/posts'
+    let(:post2) { Post.create(title: "Test 2") }
+    let(:post3) { Post.create(title: "Test 3") }
+
+    context "no ids are passed" do
+      before do
+        post1 && post2
+        get '/api/posts'
+      end
+
+      it "uses a plural json root" do
+        JSON.parse(response.body).should have_key('posts')
+      end
+
+      it "returns all the posts" do
+        JSON.parse(response.body)['posts'].should have(2).items
+      end
     end
 
-    it "uses a plural json root" do
-      JSON.parse(response.body).should have_key('posts')
-    end
+    context "ids are passed in a parameter" do
+      before do
+        post1 && post2 && post3
+        get "/api/posts?ids[]=#{post1.id}&ids[]=#{post3.id}"
+      end
 
-    it "returns all the posts" do
-      JSON.parse(response.body).keys.should have(1).item
+      it "uses a plural json root" do
+        JSON.parse(response.body).should have_key('posts')
+      end
+
+      it "returns only the posts with supplied ids" do
+        JSON.parse(response.body)['posts'].map{ |p| p['id'] }.should =~ [post1.id, post3.id]
+      end
     end
   end
 
   describe '#show' do
     before do
-      Post.create(title: "Test")
+      post1
       get '/api/posts/1'
     end
 
@@ -67,7 +90,7 @@ describe 'Default API' do
 
   describe '#update' do
     before do
-      Post.create(title: "Test")
+      post1
       put '/api/posts/1', post: { title: 'Changed' }
     end
 
@@ -86,8 +109,7 @@ describe 'Default API' do
 
   describe "#bulk_update" do
     before do
-      Post.create(title: "Test")
-      Post.create(title: "Test 2")
+      post1 && post2
       put '/api/posts/bulk', posts: [{ id: 1, title: 'Changed' }, { id: 2, title: 'Changed 2'}]
     end
 
@@ -107,7 +129,7 @@ describe 'Default API' do
 
   describe '#destroy' do
     before do
-      Post.create(title: "Test")
+      post1
       delete '/api/posts/1'
     end
 
@@ -122,8 +144,7 @@ describe 'Default API' do
 
   describe '#bulk_destroy' do
     before do
-      Post.create(title: "Test")
-      Post.create(title: "Test 2")
+      post1 && post2
       delete '/api/posts/bulk', posts: [{ id: 1, title: 'Test' }, { id: 2, title: 'Test 2'}]
     end
 

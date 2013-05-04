@@ -3,7 +3,11 @@ module ApiEngine
     before_filter :check_whitelist
 
     def index
-      @models = model_class.all
+      if params[:ids]
+        @models = model_class.find(params[:ids])
+      else
+        @models = model_class.all
+      end
       render json: @models, root: plural_model
     end
 
