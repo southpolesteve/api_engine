@@ -5,9 +5,6 @@ describe 'Default API' do
   let(:post2) { Post.create(title: "Test 2") }
 
   describe '#index' do
-    let(:post2) { Post.create(title: "Test 2") }
-    let(:post3) { Post.create(title: "Test 3") }
-
     context "no ids are passed" do
       before do
         post1 && post2
@@ -24,6 +21,8 @@ describe 'Default API' do
     end
 
     context "ids are passed in a parameter" do
+      let(:post3) { Post.create(title: "Test 3") }
+
       before do
         post1 && post2 && post3
         get "/api/posts?ids[]=#{post1.id}&ids[]=#{post3.id}"
