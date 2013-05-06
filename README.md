@@ -46,3 +46,7 @@ Creating an issue is good. Sending a pull request is better.
 Copyright 2013 Steven Faulkner
 
 Released under the MIT License. See LICENSE.md for full text
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/southpolesteve/api_engine/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
