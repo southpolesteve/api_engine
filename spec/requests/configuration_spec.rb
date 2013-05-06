@@ -1,10 +1,9 @@
 require 'spec_helper'
 
-describe 'Configuration Spec' do
-  describe 'config.whitelist' do
+describe 'config' do
+  before { Post.create(title: "Test") }
 
-    before { Post.create(title: "Test") }
-
+  describe 'whitelist' do
     after do
       ApiEngine.configure do |config|
         config.whitelist = false
@@ -12,7 +11,6 @@ describe 'Configuration Spec' do
     end
 
     context 'Post is not on the whitelist' do
-
       before do
         ApiEngine.configure do |config|
           config.whitelist = [:comment]
@@ -26,7 +24,6 @@ describe 'Configuration Spec' do
     end
 
     context 'Post is on the whitelist' do
-
       before do
         ApiEngine.configure do |config|
           config.whitelist = [:post]
@@ -38,5 +35,13 @@ describe 'Configuration Spec' do
         response.status.should eq(200)
       end
     end
+  end
+
+  describe 'current_user_method' do
+
+  end
+
+  describe 'authentication_method' do
+
   end
 end
