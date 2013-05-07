@@ -17,8 +17,7 @@ module ApiEngine
 
   class Configuration #:nodoc:
     include ActiveSupport::Configurable
-    config_accessor(:whitelist) { false }
-
+    config_accessor(:models) { false }
   end
 
 end

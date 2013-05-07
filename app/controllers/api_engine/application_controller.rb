@@ -1,6 +1,6 @@
 module ApiEngine
   class ApplicationController < ActionController::Base
-    before_filter :check_whitelist
+    before_filter :check_models
 
     def index
       if params[:ids]
@@ -83,9 +83,9 @@ module ApiEngine
       params[plural_model] ? true : false
     end
 
-    def check_whitelist
-      whitelist = ApiEngine.config.whitelist
-      if whitelist && !whitelist.include?(singular_model.to_sym)
+    def check_models
+      models = ApiEngine.models
+      if models && defined?(model_class) && !models.include?(model_class)
         redirect_to :status => 404
       end
     end

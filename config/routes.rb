@@ -1,5 +1,7 @@
 ApiEngine::Engine.routes.draw do
 
+  get '/schema' => 'schema#index'
+
   get '/:model_name/' => 'application#index'
   get '/:model_name/:id' => 'application#show'
   post '/:model_name' => 'application#create'
