@@ -13,7 +13,7 @@ module ApiEngine
         model_key = model.to_s.downcase.pluralize.to_sym
         model_schema = {}
         model_schema[model_key] = model.active_model_serializer.schema
-        resp[:resources][model_key] = model_schema
+        resp[:resources].merge!(model_schema)
       end
       resp
     end
