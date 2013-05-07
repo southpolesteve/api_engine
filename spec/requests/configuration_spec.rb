@@ -1,21 +1,21 @@
 require 'spec_helper'
 
 describe 'Configuration Spec' do
-  describe 'config.whitelist' do
+  describe 'config.models' do
 
     before { Post.create(title: "Test") }
 
     after do
       ApiEngine.configure do |config|
-        config.whitelist = false
+        config.models = false
       end
     end
 
-    context 'Post is not on the whitelist' do
+    context 'Post is not on the models' do
 
       before do
         ApiEngine.configure do |config|
-          config.whitelist = [:comment]
+          config.models = [:comment]
         end
       end
 
@@ -25,11 +25,11 @@ describe 'Configuration Spec' do
       end
     end
 
-    context 'Post is on the whitelist' do
+    context 'Post is on the models' do
 
       before do
         ApiEngine.configure do |config|
-          config.whitelist = [:post]
+          config.models = [:post]
         end
       end
 
